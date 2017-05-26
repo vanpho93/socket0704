@@ -14,4 +14,9 @@ server.listen(3000, () => console.log('Server started!'));
 
 io.on('connection', socket => {
     console.log(socket.id);
+
+    socket.on('NHAN_DOI_SO_NAY', msg => {
+        io.emit('KET_QUA_DAY', msg);
+    });
+    // setInterval(() => socket.emit('SERVER_TRUYEN_TIN', Math.random()), 2000);
 });
